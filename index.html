@@ -1,335 +1,295 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cabinet infirmier d'Aubigny – Soins à domicile et au cabinet</title>
-  <meta name="description" content="Cabinet infirmier d'Aubigny-Les Clouzeaux (Vendée) : soins à domicile et au cabinet, permanence sans rendez-vous du lundi au vendredi de 7h à 9h45, soins à domicile 7j/7 de 7h à 20h, vaccination. 06 50 69 95 43.">
-  <meta property="og:title" content="Cabinet infirmier d'Aubigny">
-  <meta property="og:description" content="Soins à domicile et au cabinet à Aubigny-Les Clouzeaux. Permanence sans rendez-vous du lundi au vendredi, 7h – 9h45. Soins à domicile 7j/7.">
-  <meta property="og:image" content="images/facade.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_FR">
-  <link rel="icon" href="images/logo-favicon.ico" sizes="48x48">
-  <link rel="icon" href="images/logo-icon-192.png" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="images/logo-apple-touch-icon.png">
-  <link rel="manifest" href="logo.webmanifest">
-  <meta name="theme-color" content="#0f5c63">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "name": "Cabinet infirmier d'Aubigny",
-    "description": "Soins infirmiers à domicile et au cabinet",
-    "telephone": "+33650699543",
-    "image": "images/facade.jpg",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "10 rue Louis Pasteur",
-      "postalCode": "85430",
-      "addressLocality": "Aubigny-Les Clouzeaux",
-      "addressRegion": "Vendée",
-      "addressCountry": "FR"
-    },
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "07:00",
-      "closes": "09:45"
-    }]
-  }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM-Training-Handbook - Master Large Language Model Training</title>
+    <meta name="description" content="The ultimate technical reference on how large language models are trained. Learn from documented training runs, economics, and operational records. Download the LLM Training Handbook now.">
+    <meta name="keywords" content="LLM training, large language models, AI training, OPT-175B, Llama 3, DeepSeek-V3, Kimi K2, OLMo 2, SmolLM3, Tulu 3, DeepSeek-R1, Arabic LLM, Jais, AceGPT, ALLaM, Kuwain, technical handbook, AI reference">
+    <meta name="author" content="Tenved">
+    <meta property="og:title" content="LLM-Training-Handbook - Master Large Language Model Training">
+    <meta property="og:description" content="A comprehensive handbook on how LLMs are trained: mechanisms, economics, and operational records. Perfect for engineers, researchers, and AI enthusiasts.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/Tenved/LLM-Training-Handbook">
+    <meta property="og:image" content="https://github.com/Tenved/LLM-Training-Handbook/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LLM-Training-Handbook - Master Large Language Model Training">
+    <meta name="twitter:description" content="A technical reference on how LLMs are trained, with documented training runs and operational insights.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #1a202c;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #4299e1;
+            padding-bottom: 15px;
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: #2d3748;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background: #ebf4ff;
+            border-left: 5px solid #4299e1;
+            border-radius: 0 8px 8px 0;
+        }
+        h3 {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+        li {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+        a {
+            color: #2b6cb0;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #2c5282;
+        }
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(145deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 18px 45px;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(102, 126, 234, 0.6);
+            text-decoration: none;
+            color: white;
+        }
+        .hero {
+            background: linear-gradient(145deg, #1a202c 0%, #2d3748 100%);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .hero p {
+            color: #e2e8f0;
+            font-size: 1.2rem;
+        }
+        .badge {
+            display: inline-block;
+            background: #48bb78;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 10px 5px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .feature-card {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+            color: #2b6cb0;
+        }
+        .step {
+            background: #fffaf0;
+            border: 1px solid #fbd38d;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .step strong {
+            color: #dd6b20;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f0fff4;
+            border-radius: 8px;
+            border-left: 4px solid #48bb78;
+        }
+        .faq-item h3 {
+            margin-top: 0;
+            color: #276749;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .download-btn {
+                font-size: 1rem;
+                padding: 15px 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <a class="skip" href="#contenu">Aller au contenu</a>
+    <div class="container">
+        <h1>📚 LLM-Training-Handbook - Master Language Model Training</h1>
+        
+        <div class="hero">
+            <p>The definitive technical reference on how large language models are trained — from mechanisms and economics to real-world operational insights.</p>
+        </div>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#accueil" aria-label="Accueil">
-        <img src="images/logo-160.png" alt="" width="48" height="48">
-        <span>
-          <strong>Cabinet infirmier</strong>
-          <small>d'Aubigny</small>
-        </span>
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="menu" class="nav" aria-label="Navigation principale">
-        <a href="#horaires">Horaires</a>
-        <a href="#prestations">Prestations</a>
-        <a href="#equipe">L'équipe</a>
-        <a href="#vaccination">Vaccination</a>
-        <a href="#fiches">Fiches pratiques</a>
-        <a href="#contact">Contact</a>
-        <a class="btn btn-call" href="tel:+33650699543">06 50 69 95 43</a>
-      </nav>
+        <div class="button-container">
+            <a href="https://github.com/Tenved/LLM-Training-Handbook" class="download-btn" role="button">⬇️ Download the Handbook</a>
+        </div>
+
+        <h2>🚀 Getting Started</h2>
+        <p>Visit this link to download the application. Once you open the page, you'll find the latest release of the LLM-Training-Handbook. Click the download button and the file will be saved to your computer. No programming knowledge required.</p>
+
+        <h2>📖 What This Handbook Covers</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>🔄 Training Mechanics</h3>
+                <p>Understand the fundamental processes behind LLM training: loss functions, optimization, learning rates, and the anatomy of a training run.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💰 Economics of AI</h3>
+                <p>Discover the true cost of training — from hardware and electricity to staffing — backed by real numbers from major projects.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📊 Operational Records</h3>
+                <p>Learn from documented cases like OPT-175B, Llama 3.1 405B, DeepSeek-V3, and more. See what worked and what didn't.</p>
+            </div>
+        </div>
+
+        <h2>📚 Who Is This For?</h2>
+        <p>This handbook is designed for anyone who wants to go deeper than basic tutorials. It's perfect for:</p>
+        <ul>
+            <li>Machine learning engineers and researchers</li>
+            <li>AI enthusiasts and students</li>
+            <li>Technical project managers and investors</li>
+            <li>Anyone curious about how giant AI models are built</li>
+        </ul>
+        <p>If you can read a technical chart or log, this book will sharpen your critical analysis skills. You'll learn to spot divergences, throughput issues, and contamination in evaluations.</p>
+
+        <h2>🎯 Key Features</h2>
+        <ul>
+            <li>Coverage of 12+ major LLM training runs, including OPT-175B and Kimi K2</li>
+            <li>Detailed breakdowns of post-training pipelines (Tulu 3, DeepSeek-R1)</li>
+            <li>Special section on Arabic LLM adaptations (Jais, AceGPT, ALLaM, Kuwain)</li>
+            <li>Companion to LLM-Inference-Handbook and LLM-Math-Handbook</li>
+            <li>Written in clear, accessible English with technical depth</li>
+        </ul>
+
+        <h2>🛠️ How To Download And Run</h2>
+        <div class="step">
+            <strong>Step 1:</strong> Visit the download page using the link below.
+        </div>
+        <div class="step">
+            <strong>Step 2:</strong> Look for the "Download" or "Release" section on that page.
+        </div>
+        <div class="step">
+            <strong>Step 3:</strong> Click the download button. Your browser will save the file to your Downloads folder.
+        </div>
+        <div class="step">
+            <strong>Step 4:</strong> Once downloaded, double-click the file. It will open in your web browser or preferred reader automatically.
+        </div>
+        <div class="button-container">
+            <a href="https://github.com/Tenved/LLM-Training-Handbook" class="download-btn" role="button">🔗 Get LLM-Training-Handbook Now</a>
+        </div>
+
+        <h2>📝 Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>What exactly will I learn?</h3>
+            <p>You'll learn how large language models are trained, the financial and computational costs involved, and how to interpret real training logs from industry projects like GPT-3 and Llama.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Do I need a powerful computer to run this?</h3>
+            <p>No. The handbook is a digital document (HTML/PDF format). Any computer with a web browser or PDF reader can view it.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is this suitable for beginners?</h3>
+            <p>Basic programming or ML knowledge is helpful but not necessary. The handbook explains concepts clearly and uses real-world examples to illustrate points.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How is this different from free online tutorials?</h3>
+            <p>This handbook is grounded in real training logs and operational data, not just abstract theory. It teaches you how to read and critically evaluate actual training runs.</p>
+        </div>
+
+        <h2>📖 Chapter Snapshot</h2>
+        <h3>1. Understanding Training Data</h3>
+        <p>How datasets are curated, filtered, and prepared — including lessons from the Arabic adaptation literature.</p>
+        <h3>2. Model Architectures</h3>
+        <p>The building blocks of modern LLMs: transformers, attention mechanisms, and scaling laws.</p>
+        <h3>3. Training Dynamics</h3>
+        <p>Optimizers, loss curves, gradient flow, and stability techniques — with examples from OLMo 2 and SmolLM3.</p>
+        <h3>4. Post-Training Pipelines</h3>
+        <p>RLHF, instruction tuning, and alignment, using Tulu 3 and DeepSeek-R1 as case studies.</p>
+        <h3>5. Operational Challenges</h3>
+        <p>Managing large-scale infrastructure, handling failures, and maintaining throughput — inspired by the OPT-175B logbook.</p>
+        <h3>6. Economic Analysis</h3>
+        <p>Breakdown of compute, storage, and energy costs across different training runs.</p>
+
+        <h2>🌟 Join The Community</h2>
+        <p>Have questions or feedback? Visit the repository on GitHub to open issues, participate in discussions, or contribute to future editions. This handbook is part of a growing ecosystem — be sure to check out the companion guides on inference and math.</p>
+
+        <div style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: #718096;">
+            <p>© 2025 Tenved. All rights reserved. Built with ❤️ for the AI community.</p>
+        </div>
     </div>
-  </header>
-
-  <main id="contenu">
-    <!-- ACCUEIL -->
-    <section id="accueil" class="hero">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <img class="hero-logo" src="images/logo.png" alt="Logo du Cabinet infirmier d'Aubigny" width="140" height="140">
-          <p class="eyebrow">Aubigny-Les Clouzeaux · Vendée</p>
-          <h1>Cabinet infirmier d'Aubigny</h1>
-          <p class="lead">Quatre infirmières diplômées d'État pour vos soins à domicile et au cabinet.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="tel:+33650699543">Appeler le 06 50 69 95 43</a>
-            <a class="btn btn-ghost" href="#horaires">Voir les horaires</a>
-          </div>
-          <ul class="hero-facts">
-            <li><strong>Sans rendez-vous</strong> au cabinet du lundi au vendredi, 7h – 9h45</li>
-            <li><strong>À domicile</strong> 7 jours sur 7, de 7h à 20h</li>
-            <li><strong>10 rue Louis Pasteur</strong>, 85430 Aubigny</li>
-          </ul>
-        </div>
-        <figure class="hero-photo">
-          <img src="images/facade.jpg" alt="Entrée du cabinet infirmier d'Aubigny, sous le préau" width="1600" height="900">
-        </figure>
-      </div>
-    </section>
-
-    <!-- HORAIRES -->
-    <section id="horaires" class="section">
-      <div class="container">
-        <h2>Horaires</h2>
-        <div class="grid-2">
-          <article class="card card-highlight">
-            <h3>Soins au cabinet</h3>
-            <p class="big">Permanence <strong>sans rendez-vous</strong></p>
-            <p class="hours">Du lundi au vendredi<br><strong>7h00 – 9h45</strong></p>
-            <p class="muted">Sauf pendant les vacances scolaires et les jours fériés.</p>
-          </article>
-          <article class="card">
-            <h3>Pendant les vacances scolaires</h3>
-            <p>Merci de <strong>nous appeler pour prendre rendez-vous</strong>.</p>
-            <p><a class="btn btn-primary" href="tel:+33650699543">06 50 69 95 43</a></p>
-            <h3 class="mt">Soins à domicile</h3>
-            <p class="hours">7 jours sur 7<br><strong>7h00 – 20h00</strong></p>
-            <p class="muted">Sur rendez-vous, par téléphone.</p>
-          </article>
-        </div>
-        <div class="bring">
-          <h3>Venez avec</h3>
-          <ul class="bring-list">
-            <li><span aria-hidden="true">📄</span> votre ordonnance</li>
-            <li><span aria-hidden="true">💳</span> votre carte Vitale</li>
-            <li><span aria-hidden="true">🪪</span> votre carte de mutuelle</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRESTATIONS -->
-    <section id="prestations" class="section section-alt">
-      <div class="container">
-        <h2>Nos prestations</h2>
-        <p class="intro">Au cabinet ou à votre domicile, nous assurons l'ensemble des soins infirmiers prescrits par votre médecin.</p>
-        <div class="grid-4">
-          <article class="card service">
-            <div class="icon" aria-hidden="true">💉</div>
-            <h3>Soins techniques</h3>
-            <ul>
-              <li>Injections</li>
-              <li>Pansements</li>
-              <li>Prises de sang</li>
-              <li>Perfusions</li>
-            </ul>
-          </article>
-          <article class="card service">
-            <div class="icon" aria-hidden="true">🩺</div>
-            <h3>Surveillance</h3>
-            <ul>
-              <li>Tension artérielle</li>
-              <li>Suivi du diabète</li>
-              <li>État clinique</li>
-              <li>Distribution des médicaments</li>
-            </ul>
-          </article>
-          <article class="card service">
-            <div class="icon" aria-hidden="true">🤝</div>
-            <h3>Éducation du patient</h3>
-            <ul>
-              <li>Apprentissage des gestes</li>
-              <li>Accompagnement</li>
-            </ul>
-          </article>
-          <article class="card service">
-            <div class="icon" aria-hidden="true">🔗</div>
-            <h3>Coordination</h3>
-            <ul>
-              <li>Bilan de soins</li>
-              <li>Transmissions médicales</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="gallery">
-          <figure>
-            <img src="images/salle-de-soins.jpg" alt="Salle de soins du cabinet avec table d'examen et fauteuil" loading="lazy" width="1600" height="900">
-            <figcaption>La salle de soins</figcaption>
-          </figure>
-          <figure>
-            <img src="images/bureau.jpg" alt="Bureau d'accueil du cabinet infirmier" loading="lazy" width="1600" height="900">
-            <figcaption>L'accueil</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- EQUIPE -->
-    <section id="equipe" class="section">
-      <div class="container">
-        <h2>Notre équipe</h2>
-        <p class="intro">Quatre infirmières diplômées d'État à votre service, au cabinet et à domicile.</p>
-        <!-- Remplacer les initiales par les photos : <img src="images/prenom.jpg" alt="..."> -->
-        <div class="grid-4 team">
-          <article class="member">
-            <div class="avatar"><img src="images/equipe-amelie.jpg" alt="Portrait d'Amélie Gracineau" width="400" height="400" loading="lazy"></div>
-            <h3>Amélie Gracineau</h3>
-            <p>Infirmière D.E.</p>
-          </article>
-          <article class="member">
-            <div class="avatar"><img src="images/equipe-marie.jpg" alt="Portrait de Marie Porpé" width="400" height="400" loading="lazy"></div>
-            <h3>Marie Porpé</h3>
-            <p>Infirmière D.E.</p>
-          </article>
-          <article class="member">
-            <div class="avatar"><img src="images/equipe-enora.jpg" alt="Portrait d'Enora Mengozzi" width="400" height="400" loading="lazy"></div>
-            <h3>Enora Mengozzi</h3>
-            <p>Infirmière D.E.</p>
-          </article>
-          <article class="member">
-            <div class="avatar"><img src="images/equipe-aude.jpg" alt="Portrait d'Aude" width="400" height="400" loading="lazy"></div>
-            <h3>Aude</h3>
-            <p>Infirmière D.E.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- VACCINATION -->
-    <section id="vaccination" class="section section-accent">
-      <div class="container grid-2 vax">
-        <div>
-          <h2>La vaccination</h2>
-          <p>La vaccination est l'un des moyens les plus efficaces pour se protéger et protéger son entourage contre les maladies infectieuses.</p>
-          <p class="lead-sm">Au cabinet, nous pouvons <strong>prescrire et administrer</strong> vos vaccins.</p>
-          <p>Depuis 2023, les infirmières peuvent prescrire et réaliser les vaccins du calendrier vaccinal à partir de 11 ans (sauf vaccins vivants chez les personnes immunodéprimées). Pas besoin de passer d'abord chez le médecin.</p>
-          <p>Apportez votre <strong>carnet de vaccination</strong> si vous l'avez. Appelez-nous avant : nous vous dirons s'il faut retirer le vaccin en pharmacie.</p>
-          <p><a class="btn btn-light" href="tel:+33650699543">Prendre rendez-vous</a></p>
-        </div>
-        <figure class="vax-photo">
-          <img src="images/affiche-vaccination.jpg" alt="Affiche : Ici, vos infirmières diplômées vous vaccinent – Cabinet infirmier d'Aubigny" loading="lazy" width="1000" height="1000">
-        </figure>
-      </div>
-    </section>
-
-    <section class="section section-alt" aria-labelledby="vaccins-titre">
-      <div class="container">
-        <h2 id="vaccins-titre">Quels vaccins, à quel âge ?</h2>
-        <p class="intro">Un aperçu des vaccins recommandés aux différents âges de la vie. Nous faisons le point avec vous à partir de votre carnet.</p>
-        <div class="grid-3">
-          <article class="card vaccine">
-            <div class="icon" aria-hidden="true">🤧</div>
-            <h3>Grippe</h3>
-            <p>Chaque automne, recommandée à partir de 65 ans, pour les femmes enceintes, les personnes atteintes de certaines maladies chroniques et l'entourage des nourrissons fragiles.</p>
-          </article>
-          <article class="card vaccine">
-            <div class="icon" aria-hidden="true">🦠</div>
-            <h3>Covid-19</h3>
-            <p>Rappel à l'automne à partir de 65 ans et pour les personnes à risque ; un rappel supplémentaire au printemps peut être proposé aux plus fragiles.</p>
-          </article>
-          <article class="card vaccine">
-            <div class="icon" aria-hidden="true">🎒</div>
-            <h3>Adolescents (11 – 18 ans)</h3>
-            <p>Rappel diphtérie-tétanos-polio-coqueluche, papillomavirus (HPV) pour les filles et les garçons, méningocoques, rattrapage de l'hépatite B.</p>
-          </article>
-          <article class="card vaccine">
-            <div class="icon" aria-hidden="true">🧑</div>
-            <h3>Adultes</h3>
-            <p>Rappels diphtérie-tétanos-polio à 25 et 45 ans (avec la coqueluche à 25 ans), coqueluche pour les futurs et jeunes parents, rattrapage HPV selon l'âge.</p>
-          </article>
-          <article class="card vaccine">
-            <div class="icon" aria-hidden="true">🧓</div>
-            <h3>À partir de 65 ans</h3>
-            <p>Rappel diphtérie-tétanos-polio tous les 10 ans, zona, pneumocoque, grippe et Covid-19 chaque automne, virus respiratoire syncytial (VRS) à partir de 75 ans.</p>
-          </article>
-          <article class="card vaccine">
-            <div class="icon" aria-hidden="true">✈️</div>
-            <h3>Voyageurs</h3>
-            <p>Selon la destination : hépatite A, typhoïde, rage… La fièvre jaune ne se fait que dans un centre de vaccinations internationales. Anticipez plusieurs semaines avant le départ.</p>
-          </article>
-        </div>
-        <p class="source">Le détail par âge figure dans le <a href="https://vaccination-info-service.fr/Generalites-sur-les-vaccinations/Calendrier-des-vaccinations" target="_blank" rel="noopener">calendrier des vaccinations officiel</a> (Santé publique France).</p>
-      </div>
-    </section>
-
-    <!-- FICHES PRATIQUES -->
-    <section id="fiches" class="section">
-      <div class="container">
-        <h2>Fiches pratiques</h2>
-        <div class="faq">
-          <details>
-            <summary>Comment se passent les soins à domicile ?</summary>
-            <p>Appelez-nous avec votre ordonnance : nous convenons ensemble des jours et de la plage horaire de passage. Préparez à l'avance votre ordonnance, votre carte Vitale, votre carte de mutuelle et le matériel prescrit.</p>
-          </details>
-          <details>
-            <summary>Dois-je être à jeun pour une prise de sang ?</summary>
-            <p>Cela dépend des examens demandés. Vérifiez votre ordonnance ou demandez au laboratoire. En cas de doute, appelez-nous la veille.</p>
-          </details>
-          <details>
-            <summary>Ai-je besoin d'une ordonnance ?</summary>
-            <p>Oui pour la plupart des soins. Pour certains vaccins, nous pouvons établir la prescription nous-mêmes.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section section-alt">
-      <div class="container grid-2">
-        <div>
-          <h2>Nous trouver</h2>
-          <address>
-            <strong>Cabinet infirmier d'Aubigny</strong><br>
-            10 rue Louis Pasteur<br>
-            85430 Aubigny-Les Clouzeaux
-          </address>
-          <p class="phone"><a href="tel:+33650699543">06 50 69 95 43</a></p>
-          <p class="muted">En cas d'urgence vitale, composez le <strong>15</strong> ou le <strong>112</strong>.</p>
-          <p><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=10+rue+Louis+Pasteur+85430+Aubigny-Les+Clouzeaux" target="_blank" rel="noopener">Itinéraire Google Maps</a></p>
-        </div>
-        <div class="map" id="map">
-          <button class="map-load" type="button">
-            <span aria-hidden="true">📍</span>
-            <strong>Afficher la carte Google</strong>
-            <small>Le chargement de la carte dépose des cookies Google.</small>
-          </button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <a class="call-fab" href="tel:+33650699543" aria-label="Appeler le cabinet au 06 50 69 95 43">
-    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-    <span>Appeler</span>
-  </a>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year">2026</span> Cabinet infirmier d'Aubigny</p>
-      <p><a href="mentions-legales.html">Mentions légales</a></p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
