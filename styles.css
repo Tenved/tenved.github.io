@@ -218,3 +218,9 @@ address { font-style: normal; font-size: 1.1rem; margin-bottom: 12px; }
   .call-fab:active { transform: scale(.96); }
   .site-footer { padding-bottom: 88px; }
 }
+
+/* Logo */
+.brand img { border-radius: 50%; }
+.hero-logo { width: 140px; height: 140px; margin: 0 0 16px; filter: drop-shadow(0 6px 16px rgba(15, 92, 99, .18)); }
+@media (max-width: 640px) { .hero-logo { width: 104px; height: 104px; } }
+.vax-photo img { aspect-ratio: 1 / 1; }
