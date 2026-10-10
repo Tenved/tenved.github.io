@@ -13,19 +13,15 @@ script.js              menu mobile + carte Google chargée au clic (pas de cooki
 images/                photos du cabinet
 ```
 
-## Hébergement gratuit sur GitHub Pages
+## Hébergement
 
-1. Créer un dépôt public dédié, par exemple `cabinet-infirmier-aubigny`.
-2. Y copier **le contenu** de ce dossier (index.html à la racine du dépôt).
-3. Dans le dépôt : *Settings → Pages → Build and deployment → Source : Deploy from a branch*,
-   branche `main`, dossier `/ (root)`.
-4. Le site est en ligne après 1–2 minutes à l'adresse
-   `https://<compte>.github.io/cabinet-infirmier-aubigny/`.
+Site en ligne : **https://cabinet-infirmier-aubigny.github.io/**
 
-Nom de domaine propre (ex. `infirmieres-aubigny.fr`) : environ 10 €/an chez un registrar,
-à déclarer dans *Settings → Pages → Custom domain*. L'hébergement reste gratuit.
+Hébergé gratuitement par GitHub Pages (*Settings → Pages* : branche `main`, dossier `/ (root)`).
+Toute modification poussée sur `main` est en ligne après 1 à 2 minutes.
 
-Alternatives gratuites équivalentes : Netlify ou Cloudflare Pages (glisser-déposer le dossier).
+Nom de domaine propre (ex. `cabinet-infirmier-aubigny.fr`, environ 10 €/an) : à déclarer dans
+*Settings → Pages → Custom domain*. L'hébergement reste gratuit.
 
 ## À compléter avant la mise en ligne
 
