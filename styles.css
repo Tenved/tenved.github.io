@@ -204,3 +204,17 @@ address { font-style: normal; font-size: 1.1rem; margin-bottom: 12px; }
 @media (max-width: 960px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .grid-3 { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .vaccine { transition: none; } .vaccine:hover { transform: none; } }
+
+/* Bouton Appeler flottant (mobile et tablette ; sur ordinateur le numéro est dans l'en-tête) */
+.call-fab { display: none; }
+@media (max-width: 960px) {
+  .call-fab {
+    position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 60;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 20px; border-radius: 999px;
+    background: var(--accent); color: #fff; font-weight: 800; text-decoration: none;
+    box-shadow: 0 8px 24px rgba(184, 51, 106, .40);
+  }
+  .call-fab:active { transform: scale(.96); }
+  .site-footer { padding-bottom: 88px; }
+}
